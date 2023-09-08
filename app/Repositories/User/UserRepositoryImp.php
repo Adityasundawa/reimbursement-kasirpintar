@@ -16,4 +16,11 @@ class UserRepositoryImp extends BaseRepository implements UserRepository
     {
         return $this->model->where('email', $email)->first();
     }
+    
+    public function findOneByNip(string $nip): ?User
+{
+    return User::where('nip', $nip)->first();
+}
+
+
 }

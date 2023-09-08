@@ -22,16 +22,17 @@ class AuthServiceImp implements AuthService
     public function authenticateLogin(Collection|array $loginDTO)
     {
         if (Auth::attempt($loginDTO)) {
-            $user = $this->userRepository->findOneByEmail($loginDTO['email']);
+            $user = $this->userRepository->findOneByNip($loginDTO['nip']);
             request()->session()->regenerate();
-            
+
             return ObjectResponse::success('Successfully Log In!', 200, $user);
+
         }
 
-        return ObjectResponse::error('Incorrect password, please check your password again!', 404, 'Password doesn\'t match!');
+        return ObjectResponse::error('Incorrect Username / password, please check your Username / Passworod again!', 404, 'Password doesn\'t match!');
 
     }
-    
+
     public function registerUser(Collection|array $registerDTO)
     {
         DB::beginTransaction();
@@ -53,7 +54,7 @@ class AuthServiceImp implements AuthService
         auth()->logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        
+
         return ObjectResponse::success('Logout berhasil!', 200);
     }
 
@@ -62,14 +63,14 @@ class AuthServiceImp implements AuthService
         if (Auth::attempt($loginDTO)) {
             $user = $this->userRepository->findOneByEmail($loginDTO['email']);
             $userToken = $user->createToken('auth_token')->plainTextToken;
-            
+
             return JsonResponse::token($userToken, $user);
         }
 
         return JsonResponse::error('Incorrect password, please check your password again!', 404, 'Password doesn\'t match!');
 
     }
-    
+
     public function registerUserViaAPI(Collection|array $registerDTO)
     {
         DB::beginTransaction();
@@ -85,5 +86,5 @@ class AuthServiceImp implements AuthService
             return JsonResponse::error('Something went wrong from the server side!', 500, $th);
         }
     }
-    
+
 }
