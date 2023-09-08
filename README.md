@@ -18,8 +18,6 @@ Ensure you have installed the following software before starting:
 
 ### Installation Steps
 
-### Installation Steps
-
 1. **Clone the Repository**
 
    ```bash
