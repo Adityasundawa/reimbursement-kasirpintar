@@ -1,66 +1,88 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PT. Kasir Pintar Internasional
+I've recently completed a skills assessment at PT. Kasir Pintar Internasional. In this assessment, I was challenged to design a Reimbursement-based application. The application has several access types based on user roles, namely: Super Admin, Director, Finance, and Staff. As part of the criteria, I utilized Laravel 10 to develop this application. To further understand and see how this application operates, you can follow the installation guide below.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Development Approach
 
-## About Laravel
+### Repository Patter
+<img src="https://miro.medium.com/v2/resize:fit:1400/1*AlU_bKphPRERC98Mq0EG-w.png" width="400" alt="Laravel Logo"></a>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The Repository Pattern is one of the design patterns used in software development to separate logic related to data access from business logic. In other words, the repository acts as an intermediary between the business layer and the data layer, allowing applications to access data from any source in a consistent manner.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### Prerequisites
+Ensure you have installed the following software before starting:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+ - PHP (recommended PHP 8.2 or newer)
+ - Composer
+ - MySQL or another compatible database
+ - Node.js and npm
 
-## Learning Laravel
+### Installation Steps
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Installation Steps
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Clone the Repository**
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+   ```bash
+   git clone https://github.com/Adityasundawa/reimbursement-kasirpintar
+   cd reimbursement-kasirpintar
 
-## Laravel Sponsors
+2. **Install PHP Dependencies**
+    To acquire the necessary PHP dependencies, run the command:
+   ```bash
+   composer install
+4. **Create .env Configuration File**
+    Duplicate the .env.example file to .env and configure it according to your database settings and other configurations suitable to 
+    your local development environment. Alternatively, you can run the command:
+    ```bash
+    cp .env.example .env
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+5. **Generate Key for .env**
+    You can use the following command:
+      ```bash
+      php artisan key:generate
 
-### Premium Partners
+7. **Set Up the Database**
+    - Create a new database in phpMyAdmin
+    - Copy the database name to the .env file as follows:
+         ```bash
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=reimbursement-kasirpintar (bebas sesuaikan dengan Anda)
+        DB_USERNAME=root
+        DB_PASSWORD=
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+8. **Generate FileSystem**
+    As this project uses Storage or FileSystem, ensure you run the command:
+      ```bash
+      php artisan storage:link
+      
+10. **Run Database Migration**
+    Execute the migration to create the necessary tables in the database:
+      ```bash
+    php artisan migrate
 
-## Contributing
+12. **Execute the Seeder**
+    Run the following command to populate your database with default project data:
+      ```bash
+      php artisan db:seed
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+14. **Install JavaScript Dependencies**
+   In the project directory, run the following command to install JavaScript dependencies via npm:
+       ```bash
+       npm:npm install && npm run dev
+    
 
-## Code of Conduct
+16. **Launch the Local Server**
+    Finally, you can run the local development server with the command:
+     ```bash
+    php artisan serve
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+### Accessing the Project
+| NIP | NAMA | JABATAN | EMAIL | PASSWORD |
+|------|------|------|------|------|
+| 1234 | DONI   | DIREKTUR   | direktur@mail.com  | direktur@mail.com  |
+| 1235  | DONO   | FINANCE   | finance@mail.com  | finance@mail.com  |
+| 1236  | DONA   | STAFF   | staff@mail.com  | staff@mail.com  |
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
