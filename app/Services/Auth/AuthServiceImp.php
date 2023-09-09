@@ -13,7 +13,6 @@ use App\Repositories\User\UserRepository;
 class AuthServiceImp implements AuthService
 {
     protected $userRepository;
-
     public function __construct(UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
@@ -24,13 +23,9 @@ class AuthServiceImp implements AuthService
         if (Auth::attempt($loginDTO)) {
             $user = $this->userRepository->findOneByNip($loginDTO['nip']);
             request()->session()->regenerate();
-
             return ObjectResponse::success('Successfully Log In!', 200, $user);
-
         }
-
         return ObjectResponse::error('Incorrect Username / password, please check your Username / Passworod again!', 404, 'Password doesn\'t match!');
-
     }
 
     public function registerUser(Collection|array $registerDTO)
@@ -40,7 +35,6 @@ class AuthServiceImp implements AuthService
             $registerDTO['password'] = Hash::make($registerDTO['password']);
             $createdUser = $this->userRepository->create($registerDTO);
             $userToken = $createdUser->createToken('auth_token')->plainTextToken;
-
             DB::commit();
             return JsonResponse::token($userToken, $createdUser);
         } catch (\Throwable $th) {

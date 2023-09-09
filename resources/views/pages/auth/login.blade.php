@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Acara - Ticketing Bootstrap Admin Dashboard</title>
+    <title>Login</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png">
     <link href="{{ url('/assets/css/style.css') }}" rel="stylesheet">
@@ -54,11 +54,11 @@
                                         @csrf
                                         <div class="form-group">
                                             <label class="mb-1 text-white"><strong>NIP</strong></label>
-                                            <input type="text" name="nip" class="form-control">
+                                            <input type="text" name="nip" placeholder="NIP"class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="mb-1 text-white"><strong>Password</strong></label>
-                                            <input type="password" name="password" class="form-control">
+                                            <input type="password" name="password" placeholder="Password"class="form-control">
                                         </div>
                                         <div class="form-row d-flex justify-content-between mt-4 mb-2">
                                             <div class="form-group">

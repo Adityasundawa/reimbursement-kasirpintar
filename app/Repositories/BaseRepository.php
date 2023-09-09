@@ -6,7 +6,7 @@ use Illuminate\Support\Collection;
 
 class BaseRepository
 {
-    protected $model; 
+    protected $model;
 
     public function __construct($model)
     {
@@ -37,7 +37,7 @@ class BaseRepository
     {
         return $this->model->where('id', $id)->update($dto);
     }
-    
+
     public function updateByUUID(string $uuid, Collection|array $dto)
     {
         return $this->model->where('uuid', $uuid)->update($dto);
@@ -47,7 +47,7 @@ class BaseRepository
     {
         $this->model->where('id', $id)->delete();
     }
-    
+
     public function deleteByUUID(string $uuid)
     {
         $this->model->where('uuid', $uuid)->delete();

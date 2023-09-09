@@ -11,9 +11,13 @@ class Role extends Model
     use HasFactory, WithUuid;
 
     protected $guarded = ['id'];
-    
+
     public function rolePermissions()
     {
         return $this->hasMany('App\Models\Permission', 'role_id', 'uuid');
+    }
+    public function users()
+    {
+        return $this->hasMany('App\Models\User', 'role_id');
     }
 }

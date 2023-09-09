@@ -23,8 +23,15 @@ Route::post('/login', [App\Http\Controllers\Admin\Auth\AuthController::class, 'a
 Route::middleware('auth')->group(function () {
     Route::get('/logout', [App\Http\Controllers\Admin\Auth\AuthController::class, 'logout'])->name('auth.logout');
     Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'viewDashboard'])->name('dashboard')->middleware(['permission:manage dashboard']);
+
     Route::get('/dashboard/direktur', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'viewDashboard'])->name('direktur.dashboard')->middleware(['permission:manage direktur']);
+    Route::get('/dashboard/users/{id}', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'delete'])->name('direktur.delete')->middleware(['permission:manage direktur']);
+    Route::post('/dashboard/users/save', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'save'])->name('direktur.save');
+    Route::get('/dashboard/users/{id}/edit',[App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'edit'])->name('user.edit');
+    Route::put('/dashboard/users/{id}', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'update'])->name('user.update');
+
     Route::get('/dashboard/finance', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'viewDashboard'])->name('finance.dashboard')->middleware(['permission:manage finance']);
+
     Route::get('/dashboard/staff', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'viewDashboard'])->name('staff.dashboard')->middleware(['permission:manage staff']);
 
 

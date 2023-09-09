@@ -42,7 +42,7 @@
 		@include respond('phone') {
 			max-width: 40px;
 		}
-		
+
     }
     .logo-compact {
         display: none;
@@ -69,12 +69,12 @@
 			padding-left: 25px;
 			padding-right: 25px;
 		}
-		
+
         // &:hover {
         //     color: $primary;
         // }
-		
-		
+
+
         [data-sidebar-style="compact"] &,
         [data-sidebar-style="mini"] & {
             padding-left: 0;
@@ -89,7 +89,7 @@
     }
     .brand-title {
 		margin-left: 10px;
-		max-width: 120px;
+		width: 237px;
 		margin-top: 0px;
         // &::first-letter{
         //     background: $white;
@@ -221,7 +221,7 @@
 }
 
 @media (min-width:767px) {
-	
+
     [data-sidebar-style="compact"] {
         .nav-control {
             display: none;

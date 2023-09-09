@@ -1,45 +1,70 @@
-<div
-    class="sticky top-0 z-10 w-full transition-all duration-100 shadow-sm bg-opacity-80 backdrop-blur bg-base-200 navbar ">
-    <div class="flex-1">
-        <label for="my-drawer-2" class="btn btn-ghost drawer-button lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
+<div class="nav-header">
+    <a href="index.html" class="brand-logo">
 
-        </label>
-    </div>
-    <div class="flex-none gap-2">
-        <div class="form-control">
-            <input type="text" placeholder="Search" class="w-30 input input-bordered md:w-auto" />
+
+        <img class="logo-compact" src="https://kasirpintar.co.id/design_v2/images/home_v2/logokaspinoriginal_homenew.svg" alt="">
+        <img class="brand-title" src="https://kasirpintar.co.id/design_v2/images/home_v2/logokaspinoriginal_homenew.svg" alt="">
+    </a>
+
+    <div class="nav-control">
+        <div class="hamburger">
+            <span class="line"></span><span class="line"></span><span class="line"></span>
         </div>
-        <button class="btn btn-ghost btn-circle">
-            <div class="indicator">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                </svg>
-                <span class="badge badge-xs badge-primary indicator-item"></span>
-            </div>
-        </button>
-        <div class="dropdown dropdown-end">
-            <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                <div class="w-10 rounded-full">
-                    <img src="{{ asset('assets/images/profile/profile.webp') }}" />
+    </div>
+</div>
+<div class="header">
+    <div class="header-content">
+        <nav class="navbar navbar-expand">
+            <div class="collapse navbar-collapse justify-content-between">
+                <div class="header-left">
+                    <div class="dashboard_bar">
+                        Dashboard
+                    </div>
                 </div>
-            </label>
-            <ul tabindex="0"
-                class="mt-3 z-[1] p-2 shadow-xl menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                <li>
-                    <a class="justify-between">
-                        Profile
-                        <span class="badge">New</span>
-                    </a>
-                </li>
-                <li><a>Settings</a></li>
-                <li><a>Logout</a></li>
-            </ul>
+                <ul class="navbar-nav header-right">
+
+                    <li class="nav-item dropdown header-profile">
+                        <a class="nav-link" href="javascript:void(0)" role="button" data-toggle="dropdown">
+                            <img src="{{url('/')}}/assets/images/profile/17.jpg" width="20" alt=""/>
+                            <!-- <div class="header-info">
+                                <span class="text-black"><strong>Brian Lee</strong></span>
+                                <p class="fs-12 mb-0">Admin</p>
+                            </div> -->
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="{{url('/')}}/app-profile.html" class="dropdown-item ai-icon">
+                                <svg id="icon-user1" xmlns="http://www.w3.org/2000/svg" class="text-primary" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                <span class="ml-2">Profile </span>
+                            </a>
+                            <a href="{{url('/')}}/email-inbox.html" class="dropdown-item ai-icon">
+                                <svg id="icon-inbox" xmlns="http://www.w3.org/2000/svg" class="text-success" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <span class="ml-2">Inbox </span>
+                            </a>
+                            <a href="{{url('/')}}/page-login.html" class="dropdown-item ai-icon">
+                                <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                <span class="ml-2">Logout </span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="deznav">
+    <div class="deznav-scroll">
+        <a href="javascript:void(0)" class="add-menu-sidebar" data-toggle="modal" data-target="#addOrderModalside" >+ New Event</a>
+        <ul class="metismenu" id="menu">
+            <li><a href="" aria-expanded="false">
+                <i class="flaticon-381-networking"></i>
+                <span class="nav-text">Dashboard</span>
+            </a>
+            </li>
+
+        </ul>
+        <div class="copyright">
+            <p><strong>Acara Ticketing Dashboard</strong> © 2021 All Rights Reserved</p>
+            <p>Made with <span class="heart"></span> by Aditya Sundawa</p>
         </div>
     </div>
 </div>
