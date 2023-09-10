@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Repositories\Roles;
+namespace App\Repositories\Reimbursement;
 
-use App\Models\Role;
+use App\Models\Reimbursement;
 use App\Repositories\BaseRepository;
 use Illuminate\Support\Collection;
 
-class RoleRepositoryImp  extends BaseRepository implements  RoleRepository
+class ReimbursementsRepositoryImp extends BaseRepository implements ReimbursementsRepository
 {
     protected $model;
 
-    public function __construct(Role $role)
+    public function __construct(Reimbursement $model)
     {
-        $this->model = $role;
+        parent::__construct($model);
     }
 
     public function all()
@@ -20,10 +20,13 @@ class RoleRepositoryImp  extends BaseRepository implements  RoleRepository
         return $this->model->all();
     }
 
-    public function getRoleByUUID($id)
-    {
-        return $this->model->where('uuid', $id)->first();
-    }
+    public function markAsRead($id)
+{
+    $reimbursement = $this->model->findOrFail($id);
+    $reimbursement->update(['read' => true]);
+    return $reimbursement;
+}
+
     public function find($id)
     {
         return $this->model->find($id);
@@ -45,4 +48,8 @@ class RoleRepositoryImp  extends BaseRepository implements  RoleRepository
     {
         $this->find($id)->delete();
     }
+
+
+    
+    // Implement specific methods for the reimbursements repository if needed
 }

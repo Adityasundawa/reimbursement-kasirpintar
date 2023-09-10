@@ -5,6 +5,7 @@ namespace App\Services\User;
 
 use App\Repositories\User\UserRepository;
 use App\Services\User\UserService;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class UserServicelmp implements UserService
 {
@@ -27,16 +28,19 @@ class UserServicelmp implements UserService
 
     public function createUser(array $attributes)
     {
+        Alert::success('Success Add User', 'User Add successfully');
         return $this->userRepository->create($attributes);
     }
 
     public function updateUser($id, array $attributes)
     {
+          Alert::success('Success Edit User', 'User Edit successfully');
         return $this->userRepository->update($id, $attributes);
     }
 
     public function deleteUser($id)
     {
+        Alert::success('Success Delete User', 'User deleted successfully');
         return $this->userRepository->delete($id);
     }
 

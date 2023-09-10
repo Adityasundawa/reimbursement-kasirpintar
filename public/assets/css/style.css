@@ -31009,4 +31009,7 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     [data-theme-version="dark"] .footer .copyright p {
       color: #fff; }
 
+.bg-kasir{
+background-color: #009688;
+}
 /*# sourceMappingURL=style.css.map */

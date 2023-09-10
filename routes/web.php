@@ -30,6 +30,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/users/{id}/edit',[App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'edit'])->name('user.edit');
     Route::put('/dashboard/users/{id}', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'update'])->name('user.update');
 
+    Route::get('/dashboard/reimbursement', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'viewReimbursement'])->name('direktur.reimbursement')->middleware(['permission:manage direktur']);
+    Route::get('/dashboard/reimbursement/{id}', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'viewReimbursementById'])->name('direktur.reimbursement.show')->middleware(['permission:manage direktur']);
+    Route::post('/dashboard/reimbursement/{id}/change_status/', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'Change_statusReimbursementById'])->name('direktur.reimbursement.change.status')->middleware(['permission:manage direktur']);
+
+
+
     Route::get('/dashboard/finance', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'viewDashboard'])->name('finance.dashboard')->middleware(['permission:manage finance']);
 
     Route::get('/dashboard/staff', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'viewDashboard'])->name('staff.dashboard')->middleware(['permission:manage staff']);

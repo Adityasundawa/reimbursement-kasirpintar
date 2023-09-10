@@ -55,12 +55,16 @@
     <div class="deznav-scroll">
         <a href="javascript:void(0)" class="add-menu-sidebar" data-toggle="modal" data-target="#addOrderModalside" >+ New Event</a>
         <ul class="metismenu" id="menu">
-            <li><a href="" aria-expanded="false">
+            <li><a href="{{route('direktur.dashboard')}}" aria-expanded="false">
                 <i class="flaticon-381-networking"></i>
                 <span class="nav-text">Dashboard</span>
             </a>
             </li>
-
+            <li><a href="{{route('direktur.reimbursement')}}" aria-expanded="false">
+                <i class="flaticon-381-notepad"></i>
+                <span class="nav-text">Reimbursement</span>
+            </a>
+            </li>
         </ul>
         <div class="copyright">
             <p><strong>Acara Ticketing Dashboard</strong> © 2021 All Rights Reserved</p>
