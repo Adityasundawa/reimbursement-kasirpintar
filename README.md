@@ -8,7 +8,7 @@ I've recently completed a skills assessment at PT. Kasir Pintar Internasional. I
 
 The Repository Pattern is one of the design patterns used in software development to separate logic related to data access from business logic. In other words, the repository acts as an intermediary between the business layer and the data layer, allowing applications to access data from any source in a consistent manner.
 
-### Prerequisites
+### Requirement
 Ensure you have installed the following software before starting:
 
  - PHP (recommended PHP 8.2 or newer)
@@ -68,7 +68,7 @@ Ensure you have installed the following software before starting:
 14. **Install JavaScript Dependencies**
    In the project directory, run the following command to install JavaScript dependencies via npm:
        ```bash
-       npm:npm install && npm run dev
+       npm install && npm run dev
     
 
 16. **Launch the Local Server**
@@ -80,7 +80,7 @@ Ensure you have installed the following software before starting:
 ### Accessing the Project
 | NIP | NAMA | JABATAN | EMAIL | PASSWORD |
 |------|------|------|------|------|
-| 1234 | DONI   | DIREKTUR   | direktur@mail.com  | direktur@mail.com  |
-| 1235  | DONO   | FINANCE   | finance@mail.com  | finance@mail.com  |
-| 1236  | DONA   | STAFF   | staff@mail.com  | staff@mail.com  |
+| 100003746392730273 | DONI   | DIREKTUR   | direktur@mail.com  | direktur@mail.com  |
+| 100003746392739478  | DONO   | FINANCE   | finance@mail.com  | finance@mail.com  |
+| 100003746392733546  | DONA   | STAFF   | staff@mail.com  | staff@mail.com  |
 

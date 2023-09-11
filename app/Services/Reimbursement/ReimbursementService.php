@@ -12,4 +12,6 @@ interface ReimbursementService
     public function getById(int $id): ?Reimbursement;
     public function markAsRead($id);
     public function updateReimbursement($id, $data);
+    public function getByUser($user);
+    public function create($data);
 }

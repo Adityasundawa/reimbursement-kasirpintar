@@ -44,55 +44,52 @@
 
             <div class="row">
                 <div class="col-lg-12">
+
                     <div class="card">
                         <div class="card-header bg-kasir">
-                            <h4 class="text-white mb-0">Reimbusment List</h4>
+                            <h4 class="text-white mb-0">Reimbusment Form</h4>
+
                         </div>
                         <div class="card-body">
-
-                            <div class="email-box">
-
-                                <div class="email-list mt-3">
-
-                                    @foreach ($reimbursements as $reimbursement)
-                                        <div class="message">
-                                            <div>
-                                                <div class="d-flex message-single">
-                                                    <div class="pl-1 align-self-center">
-                                                        <div class="custom-control custom-checkbox">
-                                                            <input type="checkbox" class="custom-control-input"
-                                                                id="checkbox2">
-                                                            <label class="custom-control-label" for="checkbox2"></label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="ml-2">
-                                                        <button class="border-0 bg-transparent align-middle p-0"><i
-                                                                class="fa fa-star" aria-hidden="true"></i></button>
-                                                    </div>
-                                                </div>
-                                                <a href="{{ route('direktur.reimbursement.show', ['id' => $reimbursement->id]) }}"
-                                                    class="col-mail col-mail-2">
-                                                    <div class="subject">
-                                                        @if ($reimbursement->read)
-                                                            {{ $reimbursement->subject }}
-                                                        @else
-                                                            <b>{{ $reimbursement->subject }}</b>
-                                                        @endif
-                                                    </div>
-                                                    <div class="date">{{ optional($reimbursement->created_at)->format('h:i a') }}</div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endforeach
+                            <form action="{{ route('staff.reimbursement.upload') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-group">
+                                    <input type="text" class="form-control subject" name="subject" placeholder="Subject">
+                                    @error('subject')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
-                                <!-- panel -->
+                                <div class="form-group">
+                                    <textarea name="description" class="form-control"  id="summernote" cols="30" rows="10"></textarea>
 
-                            </div>
+                                    @error('description')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <div class="basic-form custom_file_input">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Upload File</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" name="pdf_file" class="custom-file-input">
+                                            <label class="custom-file-label">Choose file</label>
+                                        </div>
+                                    </div>
+                                    @error('pdf_file')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                    <div class="text-right">
+                                        <button class="btn btn-primary" type="submit">Upload</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 @endsection
-

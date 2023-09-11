@@ -17,7 +17,7 @@ class ReimbursementsRepositoryImp extends BaseRepository implements Reimbursemen
 
     public function all()
     {
-        return $this->model->all();
+        return $this->model->orderBy('created_at', 'desc')->get();
     }
 
     public function markAsRead($id)
@@ -32,9 +32,9 @@ class ReimbursementsRepositoryImp extends BaseRepository implements Reimbursemen
         return $this->model->find($id);
     }
 
-    public function create(Collection|array $dto)
+    public function create($data)
     {
-        return $this->model->create($dto);
+        return $this->model->create($data);
     }
 
     public function update($id, array $attributes)
@@ -49,7 +49,14 @@ class ReimbursementsRepositoryImp extends BaseRepository implements Reimbursemen
         $this->find($id)->delete();
     }
 
+    public function getByUser($user)
+    {
+        return $this->model->where('user_id', $user)->get();
+    }
 
-    
+
+
+
+
     // Implement specific methods for the reimbursements repository if needed
 }

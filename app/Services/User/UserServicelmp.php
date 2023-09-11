@@ -3,6 +3,7 @@
 
 namespace App\Services\User;
 
+use App\Repositories\Roles\RoleRepository;
 use App\Repositories\User\UserRepository;
 use App\Services\User\UserService;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -10,10 +11,11 @@ use RealRashid\SweetAlert\Facades\Alert;
 class UserServicelmp implements UserService
 {
     protected $userRepository;
-
-    public function __construct(UserRepository $userRepository)
+    protected $roleRepository;
+    public function __construct(UserRepository $userRepository, RoleRepository $roleRepository)
     {
         $this->userRepository = $userRepository;
+        $this->roleRepository = $roleRepository;
     }
 
     public function getAllUsers()
@@ -34,7 +36,7 @@ class UserServicelmp implements UserService
 
     public function updateUser($id, array $attributes)
     {
-          Alert::success('Success Edit User', 'User Edit successfully');
+        Alert::success('Success Edit User', 'User Edit successfully');
         return $this->userRepository->update($id, $attributes);
     }
 
@@ -45,7 +47,11 @@ class UserServicelmp implements UserService
     }
 
     public function getAllRoles()
-{
-    return $this->roleRepository->all(); // Assuming you have a separate repository for roles.
-}
+    {
+        return $this->roleRepository->all();
+    }
+
+  
+
+
 }

@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/', [App\Http\Controllers\Admin\Auth\AuthController::class, 'viewLogin'])->name('auth.login.view');
 Route::get('/login', [App\Http\Controllers\Admin\Auth\AuthController::class, 'viewLogin'])->name('auth.login.view');
 Route::post('/login', [App\Http\Controllers\Admin\Auth\AuthController::class, 'authenticateLogin'])->name('auth.login');
 
 Route::middleware('auth')->group(function () {
+
+
+
     Route::get('/logout', [App\Http\Controllers\Admin\Auth\AuthController::class, 'logout'])->name('auth.logout');
     Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'viewDashboard'])->name('dashboard')->middleware(['permission:manage dashboard']);
 
@@ -35,10 +36,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/dashboard/reimbursement/{id}/change_status/', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'Change_statusReimbursementById'])->name('direktur.reimbursement.change.status')->middleware(['permission:manage direktur']);
 
 
+    Route::get('/dashboard/staff', [App\Http\Controllers\Staff\DashboardStaffController::class, 'viewDashboard'])->name('staff.dashboard')->middleware(['permission:manage staff']);
+    Route::get('/dashboard/staff/reimbursement/{id}', [App\Http\Controllers\Staff\DashboardStaffController::class, 'viewReimbursementById'])->name('staff.reimbursement.show')->middleware(['permission:manage staff']);
+    Route::get('/dashboard/staff/add/reimbursement', [App\Http\Controllers\Staff\DashboardStaffController::class, 'addReimbursement'])->name('staff.reimbursement.add')->middleware(['permission:manage staff']);
+    Route::post('/dashboard/staff/add/reimbursement/upload', [App\Http\Controllers\Staff\DashboardStaffController::class, 'uploadReimbursement'])->name('staff.reimbursement.upload')->middleware(['permission:manage staff']);;
 
-    Route::get('/dashboard/finance', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'viewDashboard'])->name('finance.dashboard')->middleware(['permission:manage finance']);
 
-    Route::get('/dashboard/staff', [App\Http\Controllers\Admin\Dashboard\DashboardController::class, 'viewDashboard'])->name('staff.dashboard')->middleware(['permission:manage staff']);
+    Route::get('/dashboard/finance', [App\Http\Controllers\Finance\DashboardFinanceController::class, 'viewDashboard'])->name('finance.dashboard')->middleware(['permission:manage finance']);
+    Route::get('/dashboard/finance/reimbursement/{id}', [App\Http\Controllers\Finance\DashboardFinanceController::class, 'viewReimbursementById'])->name('finance.reimbursement.show')->middleware(['permission:manage finance']);
+
 
 
 

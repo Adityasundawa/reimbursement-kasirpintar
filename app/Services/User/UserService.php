@@ -18,4 +18,7 @@ interface UserService
     public function deleteUser($id);
 
     public function getAllRoles();
+
+
+
 }
